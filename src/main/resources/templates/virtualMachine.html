@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+    <head>
+        <title>Listado de Máquinas virtuales</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> VirtualMachine</a>
+                </h3>
+                <h2>Listado de Máquinas virtuales</h2>
+                <div class="table-responsive">
+                    <table class="table" id="virtualMachine-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Dirección IP Actual</th>
+                                <th>Instancias Instaladas</th>
+                                <th>Usuario Actual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="virtualMachine : ${virtualMachines}">
+                                <td><a th:text="${virtualMachine.name}" th:href="@{'/show/' + ${virtualMachine.id}}"></a></td>
+                                <td th:text="${virtualMachine.currentIP}"></td>
+                                <td th:text="${virtualMachine.installedInstances}"></td>
+                                <td th:text="${virtualMachine.currentUser}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

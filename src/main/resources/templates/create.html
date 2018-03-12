@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="default">
+<head>
+<title>Crear MáquinaVirtual</title>
+</head>
+<body>
+	<div layout:fragment="content" class="row">
+		<div class="col-xs-8 col-md-8">
+			<h3>
+				<a href="/virtualMachine" class="btn btn-lg btn-primary"><span
+					class="glyphicon glyphicon-list"></span> VirtualMachine</a>
+			</h3>
+			<h2>Create Product</h2>
+			<form action="/save">
+				<div class="form-group">
+					<label for="email">Nombre:</label> <input type="text"
+						class="form-control" name="name" />
+				</div>
+				<div class="form-group">
+					<label for="email">Dirección IP Actual:</label> <input type="text"
+						class="form-control" name="currentIP" />
+				</div>
+				<div class="form-group">
+					<label for="email">Instancias Instaladas:</label>
+					<textarea class="form-control" name="installedInstances" cols="30"
+						rows="3"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="email">Usuario Actual:</label> <input type="text"
+						class="form-control" name="currentUser" />
+				</div>
+				<button type="submit" class="btn btn-success">Guardar</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
