@@ -3,7 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="default">
 <head>
-<title>Mostrar Máquina Virtual</title>
+<title>Mostrar M&aacute;quina Virtual</title>
 </head>
 <body>
 	<div layout:fragment="content" class="row">
@@ -14,7 +14,7 @@
 			</h3>
 			<h2 th:text="${virtualMachine.name}"></h2>
 			<dl class="list">
-				<dt>Dirección IP</dt>
+				<dt>Direcci&oacute;n IP</dt>
 				<dd th:text="${virtualMachine.currentIP}"></dd>
 				<dt>Instancias instaladas</dt>
 				<dd th:text="${virtualMachine.installedInstances}"></dd>
@@ -26,7 +26,9 @@
 				<h2>
 					<input type="submit" class="btn btn-danger" value="Borrar"
 						onclick="return confirm('Seguro desea borrar?');" /> 
-						<a th:href="@{'/edit/' + ${virtualMachine.id}}" class="btn btn-warning">Editar</a>
+						<a th:href="@{'/edit/' + ${virtualMachine.id}}" class="btn btn-info">Editar</a>
+						<a th:href="@{'/take/' + ${virtualMachine.id}}" class="btn btn-success">Tomar</a>
+						<a th:href="@{'/release/' + ${virtualMachine.id}}" class="btn btn-warning">Liberar</a>
 				</h2>
 			</form>
 		</div>

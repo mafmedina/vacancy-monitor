@@ -3,24 +3,25 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="default">
 <head>
-<title>Editar Máaquina Virtual</title>
+<title>Editar M&aacute;quina Virtual</title>
 </head>
 <body>
 	<div layout:fragment="content" class="row">
 		<div class="col-xs-8 col-md-8">
 			<h3>
-				<a href="/VirtualMachine" class="btn btn-lg btn-primary"><span
+				<a href="/virtualMachine" class="btn btn-lg btn-primary"><span
 					class="glyphicon glyphicon-list"></span> VirtualMachine</a>
 			</h3>
 			<h2>Edit Product</h2>
 			<form action="/update">
 				<div class="form-group">
 					<label for="email">Nombre:</label> <input type="text"
-						class="form-control" name="name" th:value="${virtualMachine.name}" />
+						class="form-control" name="name" required="required"
+						th:value="${virtualMachine.name}" />
 				</div>
 				<div class="form-group">
-					<label for="email">Dirección IP Actual:</label> <input type="text"
-						class="form-control" name="currentIP"
+					<label for="email">Direcci&oacute;n IP Actual:</label> <input
+						type="text" class="form-control" name="currentIP"
 						th:value="${virtualMachine.currentIP}" />
 				</div>
 				<div class="form-group">
@@ -28,11 +29,12 @@
 					<textarea class="form-control" name="installedInstances" cols="30"
 						rows="3" th:text="${virtualMachine.installedInstances}"></textarea>
 				</div>
-				<div class="form-group">
+
+				<!-- <div class="form-group">
 					<label for="email">Usuario Actual:</label> <input type="text"
 						class="form-control" name="currentUser"
 						th:value="${virtualMachine.currentUser}" />
-				</div>
+				</div> -->
 
 				<input type="hidden" name="id" th:value="${virtualMachine.id}" />
 				<button type="submit" class="btn btn-success">Guardar</button>

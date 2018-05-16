@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="default">
+<head>
+<title>Tomar M&aacute;quina Virtual</title>
+</head>
+<body>
+	<div layout:fragment="content" class="row">
+		<div class="col-xs-8 col-md-8">
+			<h3>
+				<a href="/virtualMachine" class="btn btn-lg btn-primary"><span
+					class="glyphicon glyphicon-list"></span> VirtualMachine</a>
+			</h3>
+			<h2>Tomar M&aacute;quina Virtual</h2>
+			<form action="/take">
+				<div class="form-group">
+					<label for="email">Usuario:</label> <input type="text"
+						class="form-control" name="currentUser" required="required"
+						th:value="${virtualMachine.currentUser}" />
+				</div>
+
+				<input type="hidden" name="id" th:value="${virtualMachine.id}" />
+				<button type="submit" class="btn btn-success">Tomar</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
