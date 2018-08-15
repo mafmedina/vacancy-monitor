@@ -1,7 +1,6 @@
 package ar.com.vm.vacancymonitor.services.impl;
 
 import java.io.IOException;
-
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -11,8 +10,8 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import ar.com.vm.vacancymonitor.models.SlackOutgoingWebhook;
 import ar.com.vm.vacancymonitor.models.VirtualMachine;
 import ar.com.vm.vacancymonitor.repositories.VirtualMachineRepository;
 import ar.com.vm.vacancymonitor.services.VirtualMachineService;
@@ -65,6 +64,18 @@ public class VirtualMachineServiceImpl implements VirtualMachineService {
         virtualMachine.setInstalledInstances(installedInstances);
         virtualMachineRepository.save(virtualMachine);
         return virtualMachine;  
+    }
+    
+    public String getVMList(){
+		String vmList = "";
+    	for (VirtualMachine vm : virtualMachineRepository.findAll()) {
+    		vmList = vmList + vm.getName() + ": " + vm.getCurrentUser() + "\n";
+    	}
+    	return vmList;
+    }
+    
+    public void remoteTake(SlackOutgoingWebhook outgoingWebhook) {
+    	
     }
 	
 }
